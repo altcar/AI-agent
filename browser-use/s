@@ -1,0 +1,16 @@
+
+uv init
+#  We ship every day - use the latest version!
+uv add browser-use
+uv sync
+uvx browser-use install
+
+uvx browser-use init --template default
+uvx browser-use init --template default --output my_agent.py
+
+browser-use open https://example.com    # Navigate to URL
+browser-use state                       # See clickable elements
+browser-use click 5                     # Click element by index
+browser-use type "Hello"                # Type text
+browser-use screenshot page.png         # Take screenshot
+browser-use close                       # Close browser

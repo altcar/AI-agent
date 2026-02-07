@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+dist/
+build/
+.cache/
+.npm/
+.pnpm-store/
+.turbo/
+.vercel/
+.next/
+coverage/
+*.log
+*.tsbuildinfo
