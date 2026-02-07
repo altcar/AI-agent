@@ -1,4 +1,6 @@
- 让 Claude Code 自动化运营小红书
+# WIP
+```md
+让 Claude Code 自动化运营小红书
 minecraft bot 
 do work
 MoE 
@@ -20,21 +22,25 @@ Gemini, Grok , Antigravity
 AI studio
 
 playwright
-
+```
 
 # Changes made
 
 `OmniParser/pyproject.toml` + `OmniParser/uv.lock` + `OmniParser/.python-version` created; dependencies pulled from `OmniParser/requirements.txt` plus huggingface-hub for the CLI in `OmniParser/h.md`.
 
 `OpenManus/pyproject.toml` + OpenManus/uv.lock + OpenManus/.python-version created; dependencies pulled from OpenManus/requirements.txt.
+
 patchright/pyproject.toml + patchright/uv.lock + patchright/.python-version created; added patchright for patchright/script.py.
+
 Added python-dotenv to browser-use/pyproject.toml and windowsuse/pyproject.toml (needed by run/my_agent.py and main.py).
-Compatibility/installation review
+
+# Compatibility/installation review
 
 OpenManus mismatch: OpenManus/setup.py requires Python >=3.12 but OpenManus/.python-version and OpenManus/pyproject.toml now say >=3.11. This will block installs on other machines if they use 3.11. Recommended fix is to align OpenManus to 3.12.
 OmniParser has heavy ML deps (torch/paddle/ultralytics). These are platform-specific and may require extra system tooling or GPU wheels; installs can fail without the right platform/driver setup.
 browser-use and windowsuse require Python >=3.12 (already set).
-Script review findings
+
+# Script review findings
 
 
 browser-use/run/my_agent.py references openai_api_key but never defines it; use os.getenv("OPENAI_API_KEY") (or similar) before constructing ChatOpenAI.
@@ -44,6 +50,7 @@ patchright/h.md has a malformed command (python run script.py); should be python
 OmniParser/h.md and windowsuse/h.md use absolute paths; not portable to other machines.
 Install + run on a new machine (portable versions of the h.md commands) OmniParser
 
+# App
 
 OmniParser
 ```
